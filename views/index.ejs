@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo"><img src="images/logo.png" /></div>
+        <div class="searchArea">
+          <div class="searchItem"></div>
+          <input
+            type="file"
+            class="searchBar"
+            placeholder="Search for photos"
+            id="search"
+          />
+          <div class="searchIcon">
+            <i class="fa-solid fa-magnifying-glass fav-icon" id="searchit"></i>
+          </div>
+        </div>
+
+        <div class="item">
+          <button
+            type="button"
+            data-toggle="modal"
+            data-target="#myModal"
+            class="upload"
+          >
+            Upload
+          </button>
+        </div>
+        <div class="item">
+          <button id="connect_button">Connect</button>
+        </div>
+      </nav>
+    </header>
+    <div id="popup"></div>
+    <div id="allPhoto"></div>
+  </body>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="./javascripts/index.js" type="module"></script>
+</html>
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title">Upload Picture</h4>
+      </div>
+      <div class="modal-body" id="uploadPhotoBody">
+        <div id="exTab2">
+          <div class="tab-content">
+            <div class="tab-pane active" id="1">
+              <div class="uploadImage">
+                <div>
+                  <label>Title</label>
+                  <input type="text" id="title" required />
+                </div>
+                <div>
+                  <label>Description</label>
+                  <input type="text" id="description" required />
+                </div>
+                <div>
+                  <label>Price (ETH)</label>
+                  <input type="number" id="ethers" required />
+                </div>
+              </div>
+              <div class="toggle-button">
+                <button href="#2" data-toggle="tab" class="btn">Next</button>
+              </div>
+            </div>
+            <div class="tab-pane" id="2">
+              <div class="uploadImage" id="secTab">
+                <div>
+                  <label>Add Image</label>
+                  <input type="file" id="filename" class="fileType" />
+                </div>
+                <div>
+                  <label>Royalty (%)</label>
+                  <input type="number" id="royalty" required />
+                </div>
+
+                <div class="item">
+                  <button id="add_photo">Upload</button>
+                </div>
+              </div>
+              <button
+                href="#1"
+                data-toggle="tab"
+                class="btn"
+                id="previousButton"
+              >
+                Previous
+              </button>
+              <div class="loader">
+                <div class="container">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="shadow"></div>
+                  <div class="shadow"></div>
+                  <div class="shadow"></div>
+                </div>
+                <div class="status"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tabs content -->
+    </div>
+  </div>
+</div>
